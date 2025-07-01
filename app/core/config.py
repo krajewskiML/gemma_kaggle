@@ -13,14 +13,14 @@ class Settings(BaseSettings):
     ALLOWED_HOSTS: List[str] = Field(default=["*"], description="CORS allowed hosts")
     
     # Security
-    SECRET_KEY: str = Field(description="Secret key for JWT tokens")
+    SECRET_KEY: str = Field(default="dev-secret-key-change-in-production-123456789", description="Secret key for JWT tokens")
     ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(default=30, description="JWT token expiration time")
     
     # Database
-    DATABASE_URL: str = Field(description="PostgreSQL database connection URL")
+    DATABASE_URL: str = Field(default="sqlite:///./app.db", description="Database connection URL")
     
     # External APIs
-    OPENROUTER_API_KEY: str = Field(description="OpenRouter API key for AI models")
+    OPENROUTER_API_KEY: str = Field(default="", description="OpenRouter API key for AI models")
     OPENROUTER_BASE_URL: str = Field(default="https://openrouter.ai/api/v1", description="OpenRouter API base URL")
     
     # AI Model Configuration
